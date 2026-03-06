@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using Themes.Data;
 using Themes.Models;
-
-using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
 
 namespace Themes.Controllers
 {
@@ -17,9 +17,10 @@ namespace Themes.Controllers
     public class NoteListsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public NoteListsController(ApplicationDbContext context)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public NoteListsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
+            _userManager = userManager;
             _context = context;
         }
 
