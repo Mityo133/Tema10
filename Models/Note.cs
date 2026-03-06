@@ -1,12 +1,10 @@
-﻿using Microsoft.VisualBasic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Themes.Models
 {
-    public class Note
+    public class Note : BaseEntity
     {
-        public int Id { get; set; }
 
         [Required]
         [MaxLength(150)]

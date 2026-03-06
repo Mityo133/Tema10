@@ -264,3 +264,4 @@ C:\Users\user\source\repos\Themes\Themes\obj\Debug\net8.0\ref\Themes.dll
 C:\Users\user\source\repos\Themes\Themes\bin\Debug\net8.0\package-lock.json
 C:\Users\user\source\repos\Themes\Themes\bin\Debug\net8.0\package.json
 C:\Users\user\source\repos\Themes\Themes\obj\Debug\net8.0\Themes.sourcelink.json
+C:\Users\user\source\repos\Themes\Themes\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
