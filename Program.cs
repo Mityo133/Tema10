@@ -18,7 +18,7 @@ namespace Themes
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
-            // Identity configuration
+            // Identity configuration WITH roles
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = false;
@@ -31,7 +31,7 @@ namespace Themes
 
             var app = builder.Build();
 
-            // Role and Admin seeding
+            // Seed roles and admin user
             using (var scope = app.Services.CreateScope())
             {
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
@@ -41,9 +41,9 @@ namespace Themes
 
                 foreach (var roleName in roleNames)
                 {
-                    var roleExist = await roleManager.RoleExistsAsync(roleName);
+                    var roleExists = await roleManager.RoleExistsAsync(roleName);
 
-                    if (!roleExist)
+                    if (!roleExists)
                     {
                         await roleManager.CreateAsync(new IdentityRole(roleName));
                     }

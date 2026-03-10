@@ -1,19 +1,19 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Emit;
 using Themes.Models;
 
 namespace Themes.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole, string>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
-        public DbSet<Themes.Models.ApplicationUser> ApplicationUsers { get; set; }
-            public DbSet<Themes.Models.NoteList> NoteLists { get; set; }
-            public DbSet<Themes.Models.Note> Notes { get; set; }
+        public DbSet<Themes.Models.NoteList> NoteLists { get; set; }
+        public DbSet<Themes.Models.Note> Notes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
